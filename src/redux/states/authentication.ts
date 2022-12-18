@@ -1,10 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Authentication } from "../../models/authentication";
+import { User } from "../../models/user";
 
-const initialState: Authentication = { token: "" };
+const initialState: User = {
+  token: "",
+  name: "",
+  paternalSurname: "",
+  maternalSurname: "",
+  phone: "",
+  email: "",
+};
 
-export const authenticationSlice = createSlice({
-  name: "authentication",
+export const userSlice = createSlice({
+  name: "user",
   initialState,
   reducers: {
     addToken: (state, action) => {
@@ -16,6 +23,6 @@ export const authenticationSlice = createSlice({
   },
 });
 
-export const { addToken, removeToken } = authenticationSlice.actions;
+export const { addToken, removeToken } = userSlice.actions;
 
-export default authenticationSlice.reducer;
+export default userSlice.reducer;

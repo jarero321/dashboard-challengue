@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
-import { authenticationSlice } from "./states/authentication";
+import { userSlice } from "./states/authentication";
 import thunk from "redux-thunk";
 
 const persistConfig = {
@@ -11,7 +11,7 @@ const persistConfig = {
 };
 
 const reducers = combineReducers({
-  authentication: authenticationSlice.reducer,
+  user: userSlice.reducer,
 });
 
 const persistReducers = persistReducer(persistConfig, reducers);
