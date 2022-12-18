@@ -5,21 +5,14 @@ interface InputFormProps {
   name: string;
 }
 
-const Input = React.memo<InputFormProps>(
-  ({ name }) => (
-    <div>
-      <input />
-    </div>
-  ),
-  (prevProps, nextProps) =>
-    prevProps.formState.isDirty === nextProps.formState.isDirty
-);
-
-const InputForm = () => {
+const InputForm: React.FC<InputFormProps> = ({ name }) => {
   const methods = useFormContext();
+  const { register } = methods;
   return (
     <div>
-      <Input {...methods} />
+      <input {...register(name)} />
     </div>
   );
 };
+
+export default InputForm;

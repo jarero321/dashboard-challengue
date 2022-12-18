@@ -1,9 +1,10 @@
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { TypeWithKey } from "../../models/type-with-key";
 export interface FormInterface {
-  className: string;
+  className?: string;
   children: React.ReactNode;
-  onSubmit(): void;
+  onSubmit(data: TypeWithKey<string>): void;
 }
 
 const Form: React.FC<FormInterface> = ({ className, children, onSubmit }) => {
