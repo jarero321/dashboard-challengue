@@ -9,7 +9,7 @@ export const AxiosInterceptor = () => {
     const token = store.getState().persistReducers.user.token;
     if (token) {
       const newHeaders = {
-        Authorization: token,
+        Authorization: `Bearer ${token}`,
         "Content-type": "apllication-json",
       };
       request.headers = newHeaders;

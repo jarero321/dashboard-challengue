@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { User } from "../../models/user";
+import { IResponseGetUser, User } from "../../models/user";
 
 const initialState: User = {
   token: "",
@@ -17,12 +17,15 @@ export const userSlice = createSlice({
     addToken: (state, action) => {
       return { ...state, token: action.payload };
     },
-    removeToken: (state, _action) => {
-      return { ...state, token: "" };
+    addUser: (state, action: { payload: IResponseGetUser }) => {
+      return { ...state, ...action.payload };
+    },
+    removeUser: () => {
+      return { ...initialState };
     },
   },
 });
 
-export const { addToken, removeToken } = userSlice.actions;
+export const { addToken, addUser, removeUser } = userSlice.actions;
 
 export default userSlice.reducer;
