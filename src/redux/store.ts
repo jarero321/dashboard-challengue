@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import { userSlice } from "./states/user";
 import thunk from "redux-thunk";
+import { User } from "../models/user";
 
 const persistConfig = {
   key: "root",
@@ -21,4 +22,9 @@ export const store = configureStore({
   middleware: [thunk],
 });
 
+export interface AppStore {
+  persistReducers: {
+    user: User;
+  };
+}
 export const persistor = persistStore(store);

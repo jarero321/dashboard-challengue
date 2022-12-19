@@ -8,7 +8,7 @@ export interface FormInterface {
 }
 
 const Form: React.FC<FormInterface> = ({ className, children, onSubmit }) => {
-  const methods = useForm();
+  const methods = useForm({ mode: "onBlur" });
   const { handleSubmit } = methods;
   return (
     <FormProvider {...methods}>
