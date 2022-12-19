@@ -1,6 +1,6 @@
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { TypeWithKey } from "../../models/type-with-key";
+import { TypeWithKey } from "@/models/type-with-key";
 export interface FormInterface {
   className?: string;
   children: React.ReactNode;

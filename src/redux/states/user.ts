@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IResponseGetUser, User } from "../../models/user";
+import { IResponseGetUser, User } from "@/models/user";
 
 const initialState: User = {
   token: "",

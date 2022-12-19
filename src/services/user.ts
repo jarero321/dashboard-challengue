@@ -3,7 +3,7 @@ import {
   IResponseGetUser,
   IResponseSignUp,
   UserCredentials,
-} from "../models/user";
+} from "@/models/user";
 
 const API_URL = import.meta.env.VITE_API_URL;
 

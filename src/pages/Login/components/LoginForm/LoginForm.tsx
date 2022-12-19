@@ -1,15 +1,15 @@
 import React from "react";
-import { Button } from "../../../../components/Button";
-import { Form } from "../../../../components/Form";
-import { InputForm } from "../../../../components/InputForm";
-import useAuth from "../../../../hook/useAuth";
+import { Button } from "@/components/Button";
+import { Form } from "@/components/Form";
+import { InputForm } from "@/components/InputForm";
+import useAuth from "@/hook/useAuth";
 
 const LoginForm: React.FC = () => {
   const { signUp } = useAuth();
   return (
     <div className="w-full px-[6px] py-[12px] ">
       <Form
-        className="flex flex-col gap-[20px] pt-[12px] w-full "
+        className="flex flex-col gap-[28px] pt-[12px] w-full "
         onSubmit={(data: any) => signUp(data)}
       >
         <InputForm
@@ -26,7 +26,9 @@ const LoginForm: React.FC = () => {
           inputMode="text"
           required
         />
-        <Button type="submit" text="Login" />
+        <div className="w-full h-full lg:flex lg:items-center lg:justify-center">
+          <Button type="submit" text="Login" width="lg:w-[130px]" />
+        </div>
       </Form>
     </div>
   );

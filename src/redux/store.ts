@@ -2,9 +2,9 @@ import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
-import { userSlice } from "./states/user";
+import { userSlice } from "@/redux/states/user";
 import thunk from "redux-thunk";
-import { User } from "../models/user";
+import { User } from "@/models/user";
 
 const persistConfig = {
   key: "root",

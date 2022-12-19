@@ -1,9 +1,9 @@
 import React from "react";
-import { UserCredentials } from "./../models/user";
-import { AppStore } from "./../redux/store";
+import { UserCredentials } from "@/models/user";
+import { AppStore } from "@/redux/store";
 import { useSelector, useDispatch } from "react-redux";
-import { addToken, addUser, removeUser } from "../redux/states/user";
-import { getUser, signUpWithCrendentials } from "../services/user";
+import { addToken, addUser, removeUser } from "@/redux/states/user";
+import { getUser, signUpWithCrendentials } from "@/services/user";
 
 const useAuth = () => {
   const [loaderSignUp, setLoaderSignUp] = React.useState(false);

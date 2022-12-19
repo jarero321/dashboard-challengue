@@ -1,3 +1,4 @@
+import { SnackbarUtilities } from "./../utilities/snackbar-manager";
 import axios, { AxiosRequestConfig } from "axios";
 
 let store: any;
@@ -26,6 +27,7 @@ export const AxiosInterceptor = () => {
       return response;
     },
     (error) => {
+      SnackbarUtilities.error(error.response.data);
       return Promise.reject(error);
     }
   );
