@@ -1,3 +1,5 @@
+import { DashBoard } from "@/models/dashboard";
+import { dashboardSlice } from "@/redux/states/dashboard";
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import storage from "redux-persist/lib/storage";
@@ -9,11 +11,12 @@ import { User } from "@/models/user";
 const persistConfig = {
   key: "root",
   storage,
-  whiteList: ["user"],
+  whitelist: ["user"],
 };
 
 const reducers = combineReducers({
   user: userSlice.reducer,
+  dashboard: dashboardSlice.reducer,
 });
 
 const persistReducers = persistReducer(persistConfig, reducers);
@@ -26,6 +29,7 @@ export const store = configureStore({
 export interface AppStore {
   persistReducers: {
     user: User;
+    dashboard: DashBoard;
   };
 }
 export const persistor = persistStore(store);

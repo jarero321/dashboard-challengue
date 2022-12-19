@@ -1,5 +1,6 @@
 import React from "react";
 import { Loader } from "@/components/Loader";
+import { TypeWithKey } from "@/models/type-with-key";
 export interface ButtonInterface {
   text: string;
   type: "submit" | "button";
@@ -7,6 +8,7 @@ export interface ButtonInterface {
   width?: string;
   height?: string;
   loader?: boolean;
+  variant?: "primary" | "secondary";
 }
 
 const Button: React.FC<ButtonInterface> = ({
@@ -16,15 +18,24 @@ const Button: React.FC<ButtonInterface> = ({
   width,
   height,
   loader,
+  variant = "primary",
 }) => {
+  const getVariant = (variant: "primary" | "secondary"): string => {
+    const options: TypeWithKey<string> = {
+      primary:
+        "w-full h-[40px] bg-black text-white font-semibold rounded-[6px]",
+      secondary:
+        "w-full h-[40px] bg-[#E3E2E8] text-[#868690] font-semibold rounded-[6px]",
+    };
+
+    return options[variant] || options["primary"];
+  };
   return (
     <button
       disabled={loader}
       onClick={() => (onClick ? onClick() : () => null)}
       type={type}
-      className={`w-full h-[40px] bg-black text-white font-semibold rounded-[6px] ${
-        height ?? height
-      } ${width ?? ""}`}
+      className={`${getVariant(variant)}  ${height ?? height} ${width ?? ""}`}
     >
       {loader ? (
         <div className="w-full h-full flex items-center justify-center">
