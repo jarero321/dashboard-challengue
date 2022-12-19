@@ -9,6 +9,7 @@ import { User } from "../models/user";
 const persistConfig = {
   key: "root",
   storage,
+  whiteList: ["user"],
 };
 
 const reducers = combineReducers({
