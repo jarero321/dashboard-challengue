@@ -27,7 +27,9 @@ export const AxiosInterceptor = () => {
       return response;
     },
     (error) => {
-      SnackbarUtilities.error(error.response.data);
+      SnackbarUtilities.error(
+        error.response.data.message ?? error.response.data
+      );
       return Promise.reject(error);
     }
   );
