@@ -4,8 +4,10 @@ import { AppStore } from "@/redux/store";
 import { useSelector, useDispatch } from "react-redux";
 import { addToken, addUser, removeUser } from "@/redux/states/user";
 import { getUser, signUpWithCrendentials } from "@/services/user";
+import { useNavigate } from "react-router-dom";
 
 const useAuth = () => {
+  const navigate = useNavigate();
   const [loaderSignUp, setLoaderSignUp] = React.useState(false);
   const dispatch = useDispatch();
   const userState = useSelector(
@@ -16,17 +18,22 @@ const useAuth = () => {
     const { token } = userState;
     return Boolean(token.length > 0);
   };
-
   const getUserInfo = async () => {
     const userInfo = await getUser();
     dispatch(addUser(userInfo));
   };
   const signUp = async (userCredentials: UserCredentials) => {
     setLoaderSignUp(true);
-    const { token } = await signUpWithCrendentials(userCredentials);
-    dispatch(addToken(token));
-    await getUserInfo();
-    setLoaderSignUp(false);
+    try {
+      const { token } = await signUpWithCrendentials(userCredentials);
+      dispatch(addToken(token));
+      await getUserInfo();
+      navigate("/dashboard");
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoaderSignUp(false);
+    }
   };
 
   const logOut = () => {

@@ -5,7 +5,7 @@ import { InputForm } from "@/components/InputForm";
 import useAuth from "@/hook/useAuth";
 
 const LoginForm: React.FC = () => {
-  const { signUp } = useAuth();
+  const { signUp, loaderSignUp } = useAuth();
   return (
     <div className="w-full px-[6px] py-[12px] ">
       <Form
@@ -27,7 +27,12 @@ const LoginForm: React.FC = () => {
           required
         />
         <div className="w-full h-full lg:flex lg:items-center lg:justify-center">
-          <Button type="submit" text="Login" width="lg:w-[130px]" />
+          <Button
+            loader={loaderSignUp}
+            type="submit"
+            text="Login"
+            width="lg:w-[130px]"
+          />
         </div>
       </Form>
     </div>
