@@ -9,8 +9,8 @@ const LoginForm: React.FC = () => {
         className="flex flex-col gap-[14px] pt-[12px] w-full"
         onSubmit={(data) => console.log(data)}
       >
-        <InputForm name="email" placeholder="Email" />
-        <InputForm name="password" placeholder="Password" />
+        <InputForm name="email" placeholder="Email" required />
+        <InputForm name="password" placeholder="Password" required />
         <button type="submit"> Enviame </button>
       </Form>
     </div>
