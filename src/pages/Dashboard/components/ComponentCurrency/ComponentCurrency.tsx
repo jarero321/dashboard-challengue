@@ -9,9 +9,9 @@ const ComponentCurrency: React.FC<ComponentCurrencyInterface> = ({
 }) => {
   return (
     <div>
-      <p className="font-semibold text-black text-lg font-bold lg:text-3xl">
+      <p className=" text-black text-lg font-bold lg:text-3xl 2xl:text-6xl 2xl:pt-2 ">
         {formatNumberToCurrency(value)}
-        <span className="font-semibold text-xs font-semibold text-[#676E7C] lg:text-lg pl-1 ">
+        <span className="text-xs font-semibold text-[#676E7C] lg:text-lg pl-1 ">
           MXN
         </span>
       </p>

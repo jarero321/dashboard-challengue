@@ -9,13 +9,14 @@ const UserNavBar: React.FC<UserNavBarInterface> = () => {
   const { logOut } = useAuth();
   return (
     <div className="flex items-center justify-between">
-      <p className="text-black font-bold text-lg lg:text-3xl ">
+      <p className="text-black font-bold text-lg lg:text-3xl 2xl:text-6xl ">
         Bienvenido {getUserName()}
       </p>
       <Button
         text="LogOut"
         variant="secondary"
         width="w-[100px]"
+        height="h-[80]"
         onClick={logOut}
         type="button"
       />
