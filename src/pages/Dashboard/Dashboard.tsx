@@ -23,7 +23,9 @@ const Dashboard: React.FC = () => {
   return (
     <div className="bg-bg-default flex flex-col w-screen md:h-screen px-[24px] py-[24px] lg:px-[64px]">
       {loadingInfo ? (
-        <Loader />
+        <div className="w-full h-screen flex items-center justify-center">
+          <Loader color="black" />
+        </div>
       ) : (
         <>
           <div>
@@ -37,7 +39,7 @@ const Dashboard: React.FC = () => {
               <p className="font-semibold text-[#676E7C] lg:text-xl 2xl:text-3xl ">
                 Ingresos
               </p>
-              <ComponentCurrency />
+              <ComponentCurrency value={442000} />
               <LineChart chartData={dashboardState.revenuePerHour} />
             </div>
             <div className="w-full h-full flex flex-col justify-between gap-[32px]">
